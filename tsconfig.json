@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.prod.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "noEmit": true,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "paths": {
+      "antd-easy-form": ["packages/form/src/index.ts"],
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "packages": ["packages/*"],
+  "version": "independent",
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "command": {
+    "version": {
+      "message": "chore(Release): publish"
+    },
+    "publish": {
+      "ignoreChanges": ["ignored-file", "*.md", "*.test.ts"],
+      "registry": "http://rnpm.hz.netease.com"
+    }
+  }
+}

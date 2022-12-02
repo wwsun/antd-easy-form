@@ -1,0 +1,30 @@
+{
+  "name": "antd-easy-form",
+  "version": "1.0.0",
+  "description": "easy form for antd",
+  "keywords": [
+    "antd",
+    "form"
+  ],
+  "author": "wwsun <ww.sww@outlook.com>",
+  "homepage": "https://github.com/wwsun/antd-easy-form#readme",
+  "license": "MIT",
+  "main": "lib/form.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wwsun/antd-easy-form.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/wwsun/antd-easy-form/issues"
+  }
+}
