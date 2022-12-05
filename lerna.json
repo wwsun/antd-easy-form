@@ -8,8 +8,7 @@
       "message": "chore(Release): publish"
     },
     "publish": {
-      "ignoreChanges": ["ignored-file", "*.md", "*.test.ts"],
-      "registry": "http://rnpm.hz.netease.com"
+      "ignoreChanges": ["ignored-file", "*.md", "*.test.ts"]
     }
   }
 }
