@@ -8,6 +8,7 @@
     "start": "yarn workspace docs storybook"
   },
   "devDependencies": {
+    "@types/react-is": "^17.0.3",
     "eslint": "^8.28.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-config-react": "1.1.7",

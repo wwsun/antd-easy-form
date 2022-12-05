@@ -9,22 +9,36 @@
   "author": "wwsun <ww.sww@outlook.com>",
   "homepage": "https://github.com/wwsun/antd-easy-form#readme",
   "license": "MIT",
-  "main": "lib/form.js",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
-  },
+  "main": "lib/index.js",
+  "module": "esm/index.js",
+  "types": "esm/index.d.ts",
   "files": [
-    "lib"
+    "lib",
+    "esm"
   ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wwsun/antd-easy-form.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "clean": "rimraf dist/ && rimraf lib/",
+    "build": "yarn clean && yarn build:esm && yarn build:cjs",
+    "build:esm": "tsc --project tsconfig.prod.json --outDir esm/ --module ES2020",
+    "build:cjs": "tsc --project tsconfig.prod.json --outDir lib/ --module CommonJS",
+    "prepublishOnly": "yarn build"
   },
   "bugs": {
     "url": "https://github.com/wwsun/antd-easy-form/issues"
+  },
+  "devDependencies": {
+    "antd": "4"
+  },
+  "peerDependencies": {
+    "antd": "4"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^4.8.0",
+    "@types/react": "^18.0.26",
+    "react-is": "^18.2.0"
   }
 }
