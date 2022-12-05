@@ -7,7 +7,7 @@
   "scripts": {
     "start": "yarn workspace docs storybook",
     "build": "lerna run build",
-    "release": "yarn eslint && yarn build && lerna version --no-private && lerna publish from-npm"
+    "release": "yarn eslint && yarn build && lerna version --no-private && lerna publish from-package"
   },
   "devDependencies": {
     "@types/react-is": "^17.0.3",
