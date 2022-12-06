@@ -11,6 +11,7 @@
     "release": "yarn eslint && yarn build && lerna version --no-private && lerna publish from-package && yarn release:site"
   },
   "devDependencies": {
+    "@types/react": "^18.0.26",
     "@types/react-is": "^17.0.3",
     "eslint": "^8.28.0",
     "eslint-config-prettier": "8.5.0",

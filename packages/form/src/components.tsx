@@ -21,6 +21,10 @@ const list: CreateFormItemOptionsType[] = [
     },
   },
   {
+    name: 'password',
+    component: Input.Password as any,
+  },
+  {
     name: 'inputNumber',
     component: InputNumber,
     props: {
@@ -72,6 +76,12 @@ const list: CreateFormItemOptionsType[] = [
         onChange={(e) => onChange?.(e.target.value)}
         {...props}
       />
+    ),
+  },
+  {
+    name: 'checkbox',
+    component: ({ value, ...props }: any) => (
+      <Checkbox checked={value} {...props} />
     ),
   },
   {

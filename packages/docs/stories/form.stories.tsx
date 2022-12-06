@@ -1,10 +1,10 @@
 import React from 'react';
-import { Input } from 'antd';
+import { Button } from 'antd';
 import { Form, FormItem } from 'antd-easy-form';
 import 'antd/dist/antd.css';
 
 export default {
-  title: 'Example/Page',
+  title: 'Form',
   component: Form,
   subcomponents: {
     FormItem,
@@ -12,13 +12,48 @@ export default {
 };
 
 export const Basic = () => {
+  const onFinish = (values: any) => {
+    console.log('Success:', values);
+  };
+  const onFinishFailed = (errorInfo: any) => {
+    console.log('Failed:', errorInfo);
+  };
   return (
-    <Form onValuesChange={console.log}>
-      <FormItem label="Input1" tip="memo text" name="input" component="input" />
-      <FormItem label="Input2" name="input2" component={Input as any} />
-      <FormItem label="Input3" name="input3">
-        <Input />
-      </FormItem>
+    <Form
+      name="basic"
+      initialValues={{
+        remember: true,
+      }}
+      onFinish={onFinish}
+      onFinishFailed={onFinishFailed}
+      autoComplete="off"
+    >
+      <Form.Item
+        label="Username"
+        name="username"
+        required
+        requiredMessage="Please input your username!"
+        component="input"
+      />
+
+      <Form.Item
+        label="Password"
+        name="password"
+        required
+        requiredMessage="Please input your password!"
+        component="password"
+      />
+
+      <Form.Item
+        label=" "
+        name="remember"
+        component="checkbox"
+        componentProps={{ children: 'Remember me' }}
+      />
+
+      <Form.Item label=" ">
+        <Form.Submit />
+      </Form.Item>
     </Form>
   );
 };

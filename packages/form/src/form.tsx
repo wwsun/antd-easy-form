@@ -2,6 +2,7 @@ import React from 'react';
 import { Form as AntForm } from 'antd';
 import { FormProps as AntFormProps } from 'antd';
 import { FormItem } from './form-item';
+import { Submit } from './submit';
 
 export interface FormProps
   extends Omit<AntFormProps, 'labelCol' | 'wrapperCol'> {
@@ -33,7 +34,9 @@ export function Form({
 }
 
 Form.Item = FormItem;
+Form.Submit = Submit;
 Form.List = AntForm.List;
 Form.ErrorList = AntForm.ErrorList;
 Form.Provider = AntForm.Provider;
 Form.useForm = AntForm.useForm;
+Form.useWatch = AntForm.useWatch;

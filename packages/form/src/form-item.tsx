@@ -4,20 +4,21 @@ import { Form as AntForm, Space, Tooltip } from 'antd';
 import type { FormItemProps as AntFormItemProps } from 'antd';
 import { InfoCircleOutlined } from '@ant-design/icons';
 
-type CreateFormItemRenderProps<T> = Omit<T, 'value' | 'onChange'> & {
-  value?: any;
+interface FormComponentBaseProps {
   onChange?: (val: any, ...rest: any[]) => void;
-};
+  value?: any;
+  [key: string]: any;
+}
 
-export type CreateFormItemOptionsType<T = object> = {
+export type CreateFormItemOptionsType = {
   name?: string;
-  component?: string | React.ComponentType<T>;
-  render?: (props?: CreateFormItemRenderProps<T>) => React.ReactNode;
+  component?: string | React.ComponentType<object>;
+  render?: (props?: FormComponentBaseProps) => React.ReactNode;
   props?: object;
 };
 
 export interface FormItemProps<T = object> extends AntFormItemProps {
-  component?: CreateFormItemOptionsType<T>['component'];
+  component?: CreateFormItemOptionsType['component'];
   componentProps?: T;
   tip?: React.ReactNode;
   required?: boolean;
