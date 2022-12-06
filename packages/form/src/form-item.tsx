@@ -20,7 +20,8 @@ export interface FormItemProps<T = object> extends AntFormItemProps {
   component?: CreateFormItemOptionsType<T>['component'];
   componentProps?: T;
   tip?: React.ReactNode;
-  options?: any[];
+  required?: boolean;
+  requiredMessage?: string;
 }
 
 function createFormItem({
@@ -34,7 +35,9 @@ function createFormItem({
     children,
     label: labelProp,
     tip,
-    options,
+    rules: rulesProp = [],
+    required,
+    requiredMessage,
     ...props
   }: FormItemProps) {
     const label = tip ? (
@@ -51,8 +54,12 @@ function createFormItem({
       ...factoryProps,
       ...componentPropsProp,
     };
+    const rules = [...rulesProp];
+    if (required) {
+      rules.unshift({ required, message: requiredMessage });
+    }
     return (
-      <AntForm.Item label={label} {...props}>
+      <AntForm.Item label={label} rules={rules} {...props}>
         {children ??
           factory?.(componentProps) ??
           (isValidElementType(factoryComponent)

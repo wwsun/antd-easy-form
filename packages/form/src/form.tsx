@@ -36,3 +36,4 @@ Form.Item = FormItem;
 Form.List = AntForm.List;
 Form.ErrorList = AntForm.ErrorList;
 Form.Provider = AntForm.Provider;
+Form.useForm = AntForm.useForm;
