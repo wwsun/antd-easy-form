@@ -5,6 +5,10 @@ import 'antd/dist/antd.css';
 
 export default {
   title: 'Example/Page',
+  component: Form,
+  subcomponents: {
+    FormItem,
+  },
 };
 
 export const Basic = () => {
