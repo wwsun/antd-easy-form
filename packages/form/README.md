@@ -1,11 +1,25 @@
-# `form`
+# Easy Antd Form
 
-> TODO: description
+> A much more simple antd form
+
+## Docs
+
+[Online demos](https://638de074961131d6d6059786-mqidfwktyw.chromatic.com)
 
 ## Usage
 
-```
-const form = require('form');
+```jsx
+import { Form, FormItem } from 'antd-easy-form';
 
-// TODO: DEMONSTRATE API
+const App = () => {
+  return (
+    <Form onValuesChange={console.log}>
+      <FormItem label="Input1" tip="memo text" name="input" component="input" required requiredMessage="input is required!" />
+      <FormItem label="Input2" name="input2" component={Input as any} />
+      <FormItem label="Input3" name="input3">
+        <Input />
+      </FormItem>
+    </Form>
+  );
+}
 ```

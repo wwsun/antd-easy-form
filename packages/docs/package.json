@@ -15,7 +15,7 @@
   "main": "lib/docs.js",
   "scripts": {
     "storybook": "start-storybook -p 6006",
-    "build": "build-storybook",
+    "build": "build-storybook --docs",
     "chromatic": "npx chromatic --project-token=432768feaba2"
   },
   "bugs": {
