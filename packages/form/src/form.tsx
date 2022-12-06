@@ -5,8 +5,8 @@ import { FormItem } from './form-item';
 
 export interface FormProps
   extends Omit<AntFormProps, 'labelCol' | 'wrapperCol'> {
-  labelCol: number | AntFormProps['labelCol'];
-  wrapperCol: number | AntFormProps['wrapperCol'];
+  labelCol?: number | AntFormProps['labelCol'];
+  wrapperCol?: number | AntFormProps['wrapperCol'];
 }
 
 function fixCol(col: any): AntFormProps['labelCol'] {

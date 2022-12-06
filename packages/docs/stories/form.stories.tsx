@@ -11,7 +11,7 @@ export const Basic = () => {
   return (
     <Form onValuesChange={console.log}>
       <FormItem label="Input1" tip="memo text" name="input" component="input" />
-      <FormItem label="Input2" name="input2" component={Input} />
+      <FormItem label="Input2" name="input2" component={Input as any} />
       <FormItem label="Input3" name="input3">
         <Input />
       </FormItem>
