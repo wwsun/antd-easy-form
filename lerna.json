@@ -8,7 +8,8 @@
       "message": "chore(Release): publish"
     },
     "publish": {
-      "ignoreChanges": ["ignored-file", "*.md", "*.test.ts"]
+      "ignoreChanges": ["ignored-file", "*.md", "*.test.ts"],
+      "registry": "https://registry.npmjs.org"
     }
   }
 }
