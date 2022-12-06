@@ -20,8 +20,9 @@ function fixCol(col: any): AntFormProps['labelCol'] {
 }
 
 export function Form({
-  labelCol = 4,
-  wrapperCol = 16,
+  layout = 'horizontal',
+  labelCol = layout === 'horizontal' ? 4 : undefined,
+  wrapperCol = layout === 'horizontal' ? 16 : undefined,
   colon = false,
   ...rest
 }: FormProps) {
@@ -29,6 +30,7 @@ export function Form({
     labelCol: fixCol(labelCol),
     wrapperCol: fixCol(wrapperCol),
     colon,
+    layout,
     ...(rest as any),
   });
 }
