@@ -1,8 +1,7 @@
 import React from 'react';
 import { isValidElementType } from 'react-is';
-import { Form as AntForm, Space, Tooltip } from 'antd';
+import { Form as AntForm } from 'antd';
 import type { FormItemProps as AntFormItemProps } from 'antd';
-import { InfoCircleOutlined } from '@ant-design/icons';
 
 interface FormComponentBaseProps {
   onChange?: (val: any, ...rest: any[]) => void;
@@ -18,10 +17,34 @@ export type CreateFormItemOptionsType = {
 };
 
 export interface FormItemProps<T = object> extends AntFormItemProps {
+  /**
+   * 渲染的组件
+   */
   component?: CreateFormItemOptionsType['component'];
+  /**
+   * 组件的属性
+   */
   componentProps?: T;
+  /**
+   * 必选
+   */
   required?: boolean;
+  /**
+   * 必选消息
+   */
   requiredMessage?: string;
+  /**
+   * 输入提示，仅子组件可用时
+   */
+  placeholder?: string;
+  /**
+   * 输入组件禁用
+   */
+  disabled?: boolean;
+  /**
+   * 输入组件只读
+   */
+  readonly?: boolean;
 }
 
 function createFormItem({
@@ -32,16 +55,22 @@ function createFormItem({
   return function Item({
     component,
     componentProps: componentPropsProp = {},
+    placeholder,
+    disabled,
+    readonly,
     children,
     rules: rulesProp = [],
     required,
     requiredMessage,
     ...props
   }: FormItemProps) {
-    const componentProps = {
+    const componentProps = filterUndefined({
       ...factoryProps,
+      placeholder,
+      disabled,
+      readonly,
       ...componentPropsProp,
-    };
+    });
     const rules = [...rulesProp];
     if (required) {
       rules.unshift({ required, message: requiredMessage });
@@ -74,4 +103,14 @@ export function FormItem(props: FormItemProps) {
 
 export function register(options: CreateFormItemOptionsType) {
   FORM_ITEMS_MAP[options.name] = createFormItem(options);
+}
+
+function filterUndefined(obj: object) {
+  let ret = {};
+  for (const key in obj) {
+    if (obj[key] !== undefined) {
+      ret[key] = obj[key];
+    }
+  }
+  return ret;
 }

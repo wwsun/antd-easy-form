@@ -4,7 +4,7 @@
 
 ## Docs
 
-[Online demos](https://638de074961131d6d6059786-mqidfwktyw.chromatic.com)
+[Online demos](https://main--638de074961131d6d6059786.chromatic.com/)
 
 ## How to develop
 
